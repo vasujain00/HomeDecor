@@ -28,7 +28,7 @@ if(isset($_POST["submit"]))
                   if(move_uploaded_file($file_loc,$folder.$final_file))
                   {
 
-                      $insert=  mysqli_query($link,"INSERT INTO product(pname,price,description,color,quantity,dicount,material,conditions,image) VALUES('$PName','$Price','$Description','$Color','$Quantity','$Discount','$Material','$Condition','$final_file')") or die(mysqli_error($link));
+                      $insert=  mysqli_query($link,"INSERT INTO product(Pname,Price,Descri,Color,Quantity,Discount,Material,Condi,Image) VALUES('$PName','$Price','$Description','$Color','$Quantity','$Discount','$Material','$Condition','$final_file')") or die(mysqli_error($link));
                     if($insert){
                       ?>
                         <script>
@@ -127,6 +127,34 @@ user-scalable=no">
         <input type="number" class="form-control" required name="quant" id="quant">
       </div>
     </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Category:</label>
+      <div class="col-sm-10">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Category <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+
+    <?php 
+
+     $fetch = "SELECT Cat_name FROM Category";
+     $result = mysqli_query($link,$fetch);
+     if ($result->num_rows > 0) {
+     	 while($row = $result->fetch_assoc()) {
+     	?>
+<li><a href="#"><?php echo $row['Cat_name']."<br>";?></a></li>
+  
+<?php }
+}
+?>
+      
+      
+
+    </ul>
+  </div>
+</div>
+      </div>
+    </div>
+
      <div class="form-group">
       <label class="control-label col-sm-2" for="email">Discount:</label>
       <div class="col-sm-10">
