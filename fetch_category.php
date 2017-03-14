@@ -14,8 +14,7 @@ public function fetch_cat(){
      $result = mysql_query($fetch);
      if (mysql_num_rows($result) > 0) {
      	 while($row = mysql_fetch_assoc($result) ){
-     	
-          	echo  "<span><li class=\"btn btn-primary btn-custm\">".$row['Cat_name']."</li></span><br>";
+          	echo  "<span><li class=\"btn btn-primary\">".$row['Cat_name']."</li></span><br>";
 			}
      }
 }

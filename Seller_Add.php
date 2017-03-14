@@ -1,5 +1,6 @@
 <?php 
 include ('inc/connect.php');
+include('fetch_category.php');
 $msg='';
 $msg_type='';
 if(isset($_POST["submit"]))
@@ -76,8 +77,15 @@ user-scalable=no">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+    a:link{
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
+        <a href="index.php" ><font color="red"><span style="font-size:30px;cursor:pointer;margin-left:20px;">&#9776;</span></font></a>  
+
 <center>
 <div class="container">
 
@@ -136,19 +144,9 @@ user-scalable=no">
 
     <?php 
 
-     $fetch = "SELECT Cat_name FROM Category";
-     $result = mysqli_query($link,$fetch);
-     if ($result->num_rows > 0) {
-     	 while($row = $result->fetch_assoc()) {
-     	?>
-<li><a href="#"><?php echo $row['Cat_name']."<br>";?></a></li>
-  
-<?php }
-}
-?>
-      
-      
-
+          $ftch=new Fetch();
+          $ftch->fetch_cat();
+      ?>
     </ul>
   </div>
 </div>

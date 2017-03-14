@@ -52,7 +52,7 @@ class Product{
 
           <div class="overlay-content">
             <a class="arkhip" href="index.php">HomeDecor</a>
-            <a href="Seller_Add.html">Add Sellers</a>
+            <a href="Seller_Add.php">Add Sellers</a>
             <a href="showproducts.php">Show Products</a>
             <a href="additem.php">Add Items</a>
             <a href="#">Fetch Category</a>

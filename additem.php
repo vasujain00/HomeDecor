@@ -1,5 +1,5 @@
 <?php
-include_once 'dbconfig.php';
+include_once ('inc/connect.php');
 if(isset($_POST['btn-upload']))
 {    
      
