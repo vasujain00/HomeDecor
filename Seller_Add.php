@@ -57,18 +57,6 @@ if(isset($_POST["submit"]))
 
 ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -139,15 +127,21 @@ user-scalable=no">
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Category:</label>
       <div class="col-sm-10">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Category <span class="caret"></span></button>
-    <ul class="dropdown-menu">
+       <?php
+       $db=new Database();
+      $db->dbConnect();
+       $fetch = "SELECT DISTINCT Cat_name FROM Category";
+       $result = mysql_query($fetch);
 
-    <?php 
+         ?>
+         <select id="select1">
+          <?php while($data2 = mysql_fetch_array($result)){
+              $displayData2 = $data2['Cat_name'];
+          ?>
+          <option value="<?php echo $displayData2;?>"><?php echo $displayData2;?></option>
 
-          $ftch=new Fetch();
-          $ftch->fetch_cat();
-      ?>
-    </ul>
+          <?php }?>
+        </select>
   </div>
 </div>
       </div>
