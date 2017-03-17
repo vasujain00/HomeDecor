@@ -1,5 +1,9 @@
 <?php
     include('fetch_category.php');
+    session_start();
+    if(isset($_SESSION['email'])){
+        $user=$_SESSION['email'];
+    }
 
 ?>
 <!doctype html>
@@ -22,6 +26,7 @@
 
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <style>
 	   body{
@@ -137,14 +142,19 @@
 
           <div class="overlay-content">
             <a class="arkhip" href="index.php">HomeDecor</a>
-            <a href="Seller_Add.php">Add Sellers</a>
+            <a href="Seller_Add.php">Add Products</a>
             <a href="showproducts.php">Show Products</a>
-            <a href="additem.php">Add Items</a>
-            <a href="#">Fetch Category</a>
+            <a href="signup.php">SignUp | Register </a>
+            <a href="login.php">Login</a>
           </div>
     </div>
     <nav class="nav navbar navbar-fixed-top">
         <font color="red"><span style="font-size:30px;cursor:pointer;margin-left:20px;" onclick="openNav()">&#9776;</span></font>  
+        <?php 
+            if(isset($user)){
+                echo "<a href=\"logout.php\">LogOut</a>";
+            }
+        ?>
     </nav>
         <script>
         function openNav() {
@@ -161,97 +171,24 @@
         <div class="bgvid">
                 <div id="textdiv">
                     <h1>HomeDecor</h1>
-                    
+                    <?php if (isset($user))
+                    { 
+                        echo "<p>Welcome:".$user."</p>";
+                    }
+                    ?>
                 </div>
                 <video muted class="video-fluid" autoplay loop>
                     <source src="#" type="video/mp4" />
                     <source src="#" type="video/webm">
                 </video>       
     	</div>
-        
-        
-    	<script id="mytemplate" type="text/template"> 
-                    <div class="col-md-3" > 
-                        <figure>
-                            <img alt="{{st_name}}" style="width:100%;height:100%;" src="./img/images/{{img}}">
-
-                            <figcaption>
-                                <h3>{{st_name}}</h3>
-
-                                <p>hygine rate: {{hyg}}<br>
-                                    phone : {{phne}}<br>
-                                    cose : {{cost}}
-                                </p>
-
-                                <p><a href="viewmore.html?pid={{pid}}" target="_blank">Read More</a></p>
-                            </figcaption>
-                        </figure>
-                    </div>                            
-        </script>
-    	<!--script type="text/javascript">
-    	function submitForm(){
-    		//alert("form submit");
-    		deleteContent();    		
-    		var txt=$('#searchcat').val();
-	    		//console.log(txt);
-	    		$.ajax({			//works good
-	    			url:'cat-search.php',
-	    			type:'GET',
-	    			data:{action:txt},
-	    			dataType:'json',
-	    			success:function(arr){
-	    				var len=arr.length;
-	    				//console.log(len);
-	    				for(var i=0;i<len;i++){
-	    					var template = $("#mytemplate").html(); //declare and define template variable
-							var data={
-								pid:arr[i].p_id,
-                                st_name:arr[i].stal_name,
-                                img:arr[i].img,
-                                desc:arr[i].desc,
-                                phne:arr[i].phn,
-                                cost:arr[i].cost,
-                                hyg:arr[i].hygn
-							};
-							var html = Mustache.render(template, data);
-							$('#other').append(html);
-	    					//console.log(arr[i]);
-
-	    				}
-	    				/*for(var i=0;i<len;i++){
-	    					putData(arr[i],i);
-	    				}*/
-	    				/*$.each(arr,function(key,arr){
-	    					console.log(key,arr);
-	    					putData(arr);
-	    				});*/
-	    				
-	    			},
-	    			error:function(arr){
-	    				alert('No data available...');
-	    			}
-	    		});
-	    		return false;
-	    }
-
-	    	function deleteContent(){
-				$("div#other").html(""); // deleting existing data
-			}
-
-            function getdata(txt){
-                alert(txt);
-            }
-			
-    	</script-->
-		
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
                 <div class="list-group">
-                    <?php
+                    <?php/*
                         $ftch=new Fetch();
-                        $ftch->fetch_cat();
+                        $ftch->fetch_cat();*/
                     ?>
                 </div>
             </div>
@@ -290,11 +227,5 @@
                 </div>
             </div>
         </footer>
-    
-	<!--script type="text/javascript">
-		document.addEventListener("load",submitForm());
-	</script-->
-
-
 </body>
 </html>
