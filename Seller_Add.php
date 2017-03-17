@@ -23,13 +23,15 @@ if(isset($_POST["submit"]))
             $Material=$_POST["material"];
            //$Image=mysql_real_escape_string($_POST["contact"]);
             $Condition=$_POST["con"];
-
-
+            //echo $file." ".$new_file_name." ".$final_file." ".$PName." ".$Price." ".$Description." ".$Color." ".$Quantity;
+                  $db=new Database();
+                  $db->dbConnect();
+                  $link=$db->getConn();
 
                   if(move_uploaded_file($file_loc,$folder.$final_file))
                   {
 
-                      $insert=  mysqli_query($link,"INSERT INTO product(Pname,Price,Descri,Color,Quantity,Discount,Material,Condi,Image) VALUES('$PName','$Price','$Description','$Color','$Quantity','$Discount','$Material','$Condition','$final_file')") or die(mysqli_error($link));
+                      $insert=  mysql_query("INSERT INTO product(Pname,Price,Descri,Color,Quantity,Discount,Material,Condi,Image) VALUES('$PName','$Price','$Description','$Color','$Quantity','$Discount','$Material','$Condition','$final_file')") or die(mysqli_error($link));
                     if($insert){
                       ?>
                         <script>
