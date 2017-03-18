@@ -1,8 +1,12 @@
 <?php
 require_once('inc/connect.php');
 
-if(isset($_SESSION['email'])){
-	header('Location:index.php');
+if(isset($_SESSION['customeremail'])){
+	header('Location:customer.php');
+	exit();
+}
+else if(isset($_SESSION['selleremail'])){
+	header('Location: seller.php');
 	exit();
 }
 else{

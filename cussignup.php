@@ -33,13 +33,13 @@ else{
 				if($num==1){
 					echo "user created";
 					session_start();
-					$_SESSION['email']=$email;
+					$_SESSION['customeremail']=$email;
 					echo "session started";
-						header('Location:index.php');
+						header('Location:customer.php');
 						exit();
 				}
 				else{
-					echo mysql_error();
+					echo "Unable to new user. ".mysql_error();
 				}
 			}
 			

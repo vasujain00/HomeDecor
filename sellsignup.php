@@ -23,23 +23,23 @@ else{
 			$res=mysql_query($query1);
 			if($res==false){
 				echo "user already exists";
-				//exit();
+				exit();
 			}
 			else{
-				$query="INSERT INTO `seller` (`Fname`,`Lname`,`Password`,`Email`) values(\"".$fname."\",\"".$lname."\",\"".$password."\",\"".$email."\")";
-				echo $query;
+				$query="INSERT INTO `seller` (`Fname`,`Lname`,`Passwd`,`Email`) values(\"".$fname."\",\"".$lname."\",\"".$password."\",\"".$email."\")";
+				//echo $query;
 				$result=mysql_query($query);
 				$num=mysql_affected_rows();
 				if($num==1){
 					echo "user created";
 					session_start();
-					$_SESSION['email']=$email;
+					$_SESSION['selleremail']=$email;
 					echo "session started";
-						header('Location:index.php');
+						header('Location:seller.php');
 						exit();
 				}
 				else{
-					echo mysql_error();
+					echo "Unable to add new user. ".mysql_error();
 				}
 			}
 			
@@ -50,7 +50,7 @@ else{
 <html lang="en" class="no-js">
 <head>
 	<meta charset="UTF-8">
-	<title>HomeDecor | SignUp</title>
+	<title>HomeDecor | Seller SignUp</title>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 
     <!-- Bootstrap core JavaScript -->
@@ -62,7 +62,7 @@ else{
 		<div class="row" style="margin-top:100px;">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
-			<form class="form-horizontal" action="signup.php" method="POST">
+			<form class="form-horizontal" action="sellsignup.php" method="POST">
 				<div class="form-group">
 					Fname:<br>
 					<input class="form-control" type="text" name="fname" value="" placeholder="Vin">
