@@ -132,8 +132,8 @@ float: left;
 		 </li>
     <li class='has-sub'><a href='#'><span>login</span></a>
       <ul class="sub-menu">
-         <li><a href='login.php'><span>CUSTOMER LOGIN</span></a></li>
-		 <li><a href='login.php'><span>SELLER LOGIN</span></a></li>
+         <li><a href='cuslogin.php'><span>CUSTOMER LOGIN</span></a></li>
+		 <li><a href='sellogin.php'><span>SELLER LOGIN</span></a></li>
 		 <li class='last'><a href='adminlogin.php'><span>ADMIN LOGIN</span></a></li>
 		 </ul>
 		 </li>
