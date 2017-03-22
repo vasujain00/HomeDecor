@@ -1,231 +1,251 @@
-<?php
-    include('fetch_category.php');
-    session_start();
-    if(isset($_SESSION['email'])){
-        $user=$_SESSION['email'];
-    }
+<?php 
+ session_start();
 
-?>
+ if(isset($_SESSION['customeremail'])){
+ 	$user="customer";
+  $cemail=$_SESSION['customeremail'];
+ }
+ else if(isset($_SESSION['selleremail'])){
+ 	$user="seller";
+  $cemail=$_SESSION['selleremail'];
+ }
+
+ ?>
+
 <!doctype html>
-<html lang="en" class="no-js">
+
+
+
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeDecor</title>
-	<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+   <meta charset='utf-8'>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="css/first.css">
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   <title>Home Decor | Home</title>
+   <style>
+.slide-img{
+   width: 100%;
+  height: 470px;
+}
+.slider {
+  position: relative;
+  width: 100%;
+  height: 470px;
+  border-bottom: 1px solid #ddd;
+}
+.slide {
+  background: transparent  center center no-repeat;
+  background-size: cover;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.active-slide {
+    display: block;
+}
+.slider-nav {
+  text-align: center;
+  margin-top: 20px;
+}
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+.arrow-prev {
+  margin-right: 45px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 9px;
+}
 
-    <link rel="stylesheet" href="css/first.css">
-    <link rel="stylesheet" href="./css/figure.css">
+.arrow-next {
+  margin-left: 45px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 9px;
+}
 
-	 <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+.slider-dots {
+  list-style: none;
+  display: inline-block;
+  padding-left: 0;
+  margin-bottom: 0;
+}
 
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+.slider-dots li {
+  color: #bbbcbc;
+  display: inline;
+  font-size: 30px;
+  margin-right: 5px;
+}
 
-    <style>
-	   body{
-        padding: 0;
-        margin: 0;
-       }
-       
-        .arkhip{
-             font-family: Arkhip;
-            font-size: 50px;
-        }
-		 .video-fluid{
-            width :1349px;
-            height:auto;
-            position: relative;
-            z-index:0;
-        }
-        @media screen and (max-device-width:500px) and (min-device-width:300px){
-            .video-fluid{
-                width:100%;
-                height: auto;
-            }
-            
-        }
-        .caps{
-        	text-transform: uppercase;
-        }
-        #search-panel{
-			width:100%;
-        }
-         .top{
-            margin-top: 5%;
-            margin-bottom: 5%;
-        }
-        .right{
-            margin-left: 25%;
-        }
-        .left{
-            float:left;
-        }
-        #textdiv{
-            font-family: Arkhip;
-            position: absolute;
-            z-index: 1;
-            color:black;
-            text-align: center;
-            top:25%;
-            left:25%;              
-        }
-        #textdiv h1{
-            font-size: 100px;  
-            color:black;  
-        }
-       
-        @media only screen and (max-device-width:600px) and (min-device-width:300px){
-            #textdiv h1{
-                font-size: 25px;
-            }
-            #textdiv #form-css{
-                width:100%;
-                height:100%;
-                padding:20px 10px 20px 10px;
-            }
-            #textdiv{
-                top:5%;
-            }
-            
-        } 
-        /*---------------*/
-        
-        input[type=text]{
-          background-color: transparent;
-          border: none;
-          border-bottom: 1px solid #9e9e9e;
-          border-radius: 0;
-          outline: none;
-          height: 3rem;
-          width: 100%;
-          font-size: 2rem;
-          margin: 0 0 15px 0;
-          padding: 0;
-          box-shadow: none;
-          -webkit-box-sizing: content-box;
-          -moz-box-sizing: content-box;
-          box-sizing: content-box;
-          transition: all .3s;
-        }
-        input[type=text]:focus:not([readonly]) {
-              border-bottom: 1px solid #4285F4;
-              box-shadow: 0 1px 0 0 #4285F4;
-            }
-            button:focus {
-              outline: none;
-              background-color: #b275d1;
-            }
-            .form-inline{
-                background-color: rgba(0,0,0,0.6);
-            }
-        .inline li{
-            display: inline-block;
-            text-decoration: none;
-        }
-        .btn-custm{
-            min-width:120px;
-        }
-
-	</style>
+.slider-dots li.active-dot {
+  color: #363636;
+}
+.navimg{
+	position: absolute;
+	margin-top: 180px;
+	z-index: 1;
+	
+}
+#left{
+float: left;
+}
+#right{
+	right: 0;
+	float:right;
+}
+</style>
 </head>
 <body>
-	
-    <div id="myNav" class="overlay">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<div  class="heading">
+<h1><span>HOME </span>DECOR</h1>
+</div>
+<div id='dropdown'>
+<ul>
+   <li class='active'><a href='home1.php'><span>Home</span></a></li>
+   <li class='has-sub'><a href='servicedetail.html'><span>Furniture</span></a>
+      <ul class="sub-menu">
+         <li><a href='servicedetail.html'><span>BED ROOM FURNITURE</span></a></li>
+		 <li><a href='servicedetail.html'><span>LIVING ROOM FURNITURE</span></a></li>
+		 <li><a href='servicedetail.html'><span>OUT DOOR FURNITURE</span></a></li>
+		 <li><a href='servicedetail.html'><span>KITCHEN FURNITURE</span></a></li>
+		 <li><a href='servicedetail.html'><span>HALL & ENTRY FURNITURE</span></a></li>
+		 <li><a href='servicedetail.html'><span>KIDS FURNITURE</span></a></li>
+		 <li><a href='servicedetail.html'><span>GAME ROOM FURNITURE</span></a></li>
+		 <li><a href='servicedetail.html'><span>BAR FURNITURE</span></a></li>
+		 <li><a href='servicedetail.html'><span>BATHROOM FURNITURE</span></a></li>
+		 <li><a href='servicedetail.html'><span>OFFICE FURNITURE</span></a></li>
+		 <li><a href='servicedetail.html'><span>ACCENT FURNITURE</span></a></li>
+      </ul>
+   </li>
+   <li class='active'><a href='aboutus.html'><span>About US</span></a></li>
+   <li class='has-sub'><a href='#'><span>SIGNUP</span></a>
+      <ul class="sub-menu">
+         <li><a href='cussignup.php'><span>CUSTOMER SIGNUP</span></a></li>
+		 <li class="last"><a href='sellsignup.php'><span>SELLER SIGNUP</span></a></li>
+		 </ul>
+		 </li>
+    <li class='has-sub'><a href='#'><span>LOGIN</span></a>
+      <ul class="sub-menu">
+         <li><a href='clogin.php'><span>CUSTOMER LOGIN</span></a></li>
+		 <li><a href='slogin.php'><span>SELLER LOGIN</span></a></li>
+		 <li class='last'><a href='adminlogin.php'><span>ADMIN LOGIN</span></a></li>
+		 </ul>
+		 </li>
+    
 
-          <div class="overlay-content">
-            <a class="arkhip" href="index.php">HomeDecor</a>
-            <a href="Seller_Add.php">Add Products</a>
-            <a href="showproducts.php">Show Products</a>
-            <a href="signup.php">SignUp | Register </a>
-            <a href="login.php">Login</a>
-          </div>
-    </div>
-    <nav class="nav navbar navbar-fixed-top">
-        <font color="red"><span style="font-size:30px;cursor:pointer;margin-left:20px;" onclick="openNav()">&#9776;</span></font>  
-        <?php 
-            if(isset($user)){
-                echo "<a href=\"logout.php\">LogOut</a>";
-            }
-        ?>
-    </nav>
-        <script>
-        function openNav() {
-            document.getElementById("myNav").style.height = "100%";
-        }
+   <li class='active'><a href='map.html'><span>Show furniture near me</span></a></li>   
+   <li class='last'><a href='contact.html'><span>Contact</span></a></li>
+</ul>
+</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="slider">
+ 			<span class="navimg" id="left"><a  class="arrow-prev"><img src="image/sliders/slider-left.png"></a></span>
+            <span class="navimg" id="right"><a class="arrow-next"><img src="image/sliders/slider-right.png"></a></span>
 
-        function closeNav() {
-            document.getElementById("myNav").style.height = "0%";
-        }
-
-        
-        </script>
-
-        <div class="bgvid">
-                <div id="textdiv">
-                    <h1>HomeDecor</h1>
-                    <?php if (isset($user))
-                    { 
-                        echo "<p>Welcome:".$user."</p>";
-                    }
-                    ?>
-                </div>
-                <video muted class="video-fluid" autoplay loop>
-                    <source src="#" type="video/mp4" />
-                    <source src="#" type="video/webm">
-                </video>       
-    	</div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="list-group">
-                    <?php/*
-                        $ftch=new Fetch();
-                        $ftch->fetch_cat();*/
-                    ?>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="row">
-                    
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-      <footer class="page-footer special-color-dark center-on-small-only">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5 class="white-text">Footer Content</h5>
-                        <p class="grey-text text-lighten-4">Here you can use rows and columns here to organize your footer content.<br>Contact:</p>
-                    </div>
-                    <div class="col-md-6">
-                        <h5 class="white-text">Links</h5>
-                        <ul>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                        </ul>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="footer-copyright text-center rgba-black-light">
+              <div class="slide active-slide">
                 <div class="container-fluid">
-                    <a href="#"> homedecor.com </a>
+                  <div class="row">
+                    <img class="slide-img" src="image/sliders/img1.jpg" >
+                  </div>
                 </div>
-            </div>
-        </footer>
+              </div>
+              <div class="slide">
+                <div class="container-fluid">
+                  <div class="row">
+                     <img class="slide-img"src="image/sliders/img2.jpg" >
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="container-fluid">
+                  <div class="row">
+                     <img class="slide-img" src="image/sliders/img3.jpg" >
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide">
+                <div class="container-fluid">
+                  <div class="row">
+                     <img class="slide-img" src="image/sliders/img4.jpg" >
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide">
+                <div class="container-fluid">
+                  <div class="row">
+                     <img class="slide-img" src="image/sliders/img5.jpg" >
+                  </div>
+                </div>
+              </div>
+              
+          </div>
+			
+		</div>
+	</div>
+</div>
+<div>
+<footer id="footer">
+    <div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<p class="pull-left">Copyright. All rights reserved.</p>
+				</div>
+			</div>
+    </div>
+</footer>
+</div>
+
+
+<script type="text/javascript">
+              var main=function(){
+          /* IMAGE SLIDER */
+            $('.arrow-next').click(function(){
+              var currentSlide=$('.active-slide');
+              var nextSlide=currentSlide.next();
+
+             
+              
+
+              if(nextSlide.length === 0){
+                nextSlide=$('.slide').first();
+                
+              }
+
+              currentSlide.fadeOut(600).removeClass('active-slide');
+              nextSlide.fadeIn(600).addClass('active-slide');
+
+              //currentDot.removeClass('active-dot');
+              //nextDot.addClass('active-dot');
+            });
+
+            $('.arrow-prev').click(function(){
+              var currentSlide =$('.active-slide');
+              var prevSlide=currentSlide.prev();
+
+              
+
+              if(prevSlide.length === 0){
+                prevSlide=$('.slide').last();
+              
+              }
+
+              currentSlide.fadeOut(600).removeClass('active-slide');
+              prevSlide.fadeIn(600).addClass('active-slide');
+
+            }); 
+          }
+          $(document).ready(main);
+
+          </script>
 </body>
-</html>
+<html>
