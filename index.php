@@ -3,11 +3,11 @@
 
  if(isset($_SESSION['customeremail'])){
  	$user="customer";
-  $cemail=$_SESSION['customeremail'];
+  $email=$_SESSION['customeremail'];
  }
  else if(isset($_SESSION['selleremail'])){
  	$user="seller";
-  $cemail=$_SESSION['selleremail'];
+  $email=$_SESSION['selleremail'];
  }
 
  ?>
@@ -141,6 +141,14 @@ float: left;
 
    <li class='active'><a href='map.html'><span>Show furniture near me</span></a></li>   
    <li class='last'><a href='contact.html'><span>Contact</span></a></li>
+   <li class="has-sub right"><a href="" title=""><?php if(isset($email)){ echo $email; }else{ echo "WELCOME";} ?></a>
+      <?php if(isset($email)){
+              echo "<ul class=\"sub-menu\">
+                <li><a href=\"logout.php\">logout</a>
+              </ul>";
+            }
+      ?>
+   </li>
 </ul>
 </div>
 <div class="container-fluid">
