@@ -1,11 +1,6 @@
 <?php
 require_once('inc/connect.php');
 session_start();
-if(isset($_SESSION['adminemail'])){
-	header('Location:adminpage.php');
-	exit();
-}
-else{
 		if(isset($_POST['email']) && isset($_POST['password'])){
 			$db=new Database();
 			$db->dbConnect();
@@ -20,8 +15,10 @@ else{
 					header('Location:adminpage.php');
 					exit();
 			}
+			else{
+				echo mysql_error();
+			}
 		}
-}
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">

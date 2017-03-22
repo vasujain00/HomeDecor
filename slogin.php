@@ -6,9 +6,10 @@ session_start();
 			$db->dbConnect();
 			$email=mysql_real_escape_string($_POST['email']);
 			$password=mysql_real_escape_string($_POST['password']);
-			$query="SELECT `Email`,`Passwd` FROM `seller` WHERE `Email`=\"".$email."\" AND `Password`=\"".$password."\"";
+			$query="SELECT `Email`,`Passwd` FROM `seller` WHERE `Email`=\"".$email."\" AND `Passwd`=\"".$password."\"";
 			$result=mysql_query($query);
 			$num=mysql_num_rows($result);
+			echo $num;
 			if($num==1){
 				$_SESSION['selleremail']=$email;
 					header('Location:index.php');
@@ -37,7 +38,7 @@ session_start();
 		<div class="row" style="margin-top:100px;">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
-			<form class="form-horizontal" action="clogin.php" method="POST">
+			<form class="form-horizontal" action="slogin.php" method="POST">
 				<div class="form-group">
 					Email:<br>
 					<input class="form-control" type="text" name="email" value="" placeholder="abcd@pqr.xyz">

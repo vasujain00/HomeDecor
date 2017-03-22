@@ -27,22 +27,22 @@ else{
 			}
 			else{
 				$query="INSERT INTO `customer` (`Fname`,`Lname`,`Password`,`Email`) values(\"".$fname."\",\"".$lname."\",\"".$password."\",\"".$email."\")";
-				echo $query;
+				//echo $query;
 				$result=mysql_query($query);
 				$num=mysql_affected_rows();
+				echo $num;
 				if($num==1){
 					echo "user created";
 					session_start();
 					$_SESSION['customeremail']=$email;
-					echo "session started";
-						header('Location:customer.php');
+					//echo "session started";
+						header('Location:index.php');
 						exit();
 				}
 				else{
 					echo "Unable to new user. ".mysql_error();
 				}
 			}
-			
 		}
 }
 ?>
@@ -62,7 +62,7 @@ else{
 		<div class="row" style="margin-top:100px;">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
-			<form class="form-horizontal" action="signup.php" method="POST">
+			<form class="form-horizontal" action="cussignup.php" method="POST">
 				<div class="form-group">
 					Fname:<br>
 					<input class="form-control" type="text" name="fname" value="" placeholder="Vin">

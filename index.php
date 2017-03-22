@@ -13,9 +13,6 @@
  ?>
 
 <!doctype html>
-
-
-
 <html lang="en">
 <head>
    <meta charset='utf-8'>
@@ -23,7 +20,7 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
    <link rel="stylesheet" href="styles.css">
-   <link rel="stylesheet" href="css/first.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <title>Home Decor | Home</title>
    <style>
@@ -98,6 +95,9 @@ float: left;
 #right{
 	right: 0;
 	float:right;
+}
+div.hscroll{
+  overflow:auto;
 }
 </style>
 </head>
@@ -200,6 +200,78 @@ float: left;
 			
 		</div>
 	</div>
+    <div class="row">
+      <div class="col-md-12 w3-card-4">
+          <div class="container">
+            <div class="row">
+
+              <div class="col-md-2">
+                <h2>Best Price</h2>
+              </div>
+              <div class="col-md-12 hscroll">
+                <div class="w3-cell-row ">
+                  <div class="w3-card-4 w3-cell">
+                    <img src="image/gol-d-rogers.jpg" alt="Norway">
+                    <div class="w3-container w3-center">
+                      <p>The Troll's tongue in Hardanger, Norway</p>
+                    </div>
+                  </div>
+
+                  <div class="w3-card-4 w3-cell">
+                    <img src="image/gol-d-rogers.jpg" alt="Norway">
+                    <div class="w3-container w3-center">
+                      <p>The Troll's tongue in Hardanger, Norway</p>
+                    </div>
+                  </div>
+
+                  <div class="w3-card-4 w3-cell">
+                    <img src="image/gol-d-rogers.jpg" alt="Norway">
+                    <div class="w3-container w3-center">
+                      <p>The Troll's tongue in Hardanger, Norway</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-2">
+                <h2>Best Price</h2>
+              </div>
+              <div class="col-md-12 hscroll">
+                <div class="w3-cell-row ">
+                  <div class="w3-card-4 w3-cell">
+                    <img src="image/gol-d-rogers.jpg" alt="Norway">
+                    <div class="w3-container w3-center">
+                      <p>The Troll's tongue in Hardanger, Norway</p>
+                    </div>
+                  </div>
+
+                  <div class="w3-card-4 w3-cell">
+                    <img src="image/gol-d-rogers.jpg" alt="Norway">
+                    <div class="w3-container w3-center">
+                      <p>The Troll's tongue in Hardanger, Norway</p>
+                    </div>
+                  </div>
+
+                  <div class="w3-card-4 w3-cell">
+                    <img src="image/gol-d-rogers.jpg" alt="Norway">
+                    <div class="w3-container w3-center">
+                      <p>The Troll's tongue in Hardanger, Norway</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+             
+      </div> 
+    </div>
 </div>
 <div>
 <footer id="footer">
