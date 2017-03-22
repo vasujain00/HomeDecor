@@ -2,12 +2,12 @@
  session_start();
 
  if(isset($_SESSION['customeremail'])){
- 	header('Location : customer.php');
- 	exit();
+ 	$user="customer";
+  $cemail=$_SESSION['customeremail'];
  }
  else if(isset($_SESSION['selleremail'])){
- 	header('Location : seller.php');
- 	exit();
+ 	$user="seller";
+  $cemail=$_SESSION['selleremail'];
  }
 
  ?>
@@ -130,10 +130,10 @@ float: left;
 		 <li class="last"><a href='sellsignup.php'><span>SELLER SIGNUP</span></a></li>
 		 </ul>
 		 </li>
-    <li class='has-sub'><a href='#'><span>login</span></a>
+    <li class='has-sub'><a href='#'><span>LOGIN</span></a>
       <ul class="sub-menu">
-         <li><a href='cuslogin.php'><span>CUSTOMER LOGIN</span></a></li>
-		 <li><a href='sellogin.php'><span>SELLER LOGIN</span></a></li>
+         <li><a href='clogin.php'><span>CUSTOMER LOGIN</span></a></li>
+		 <li><a href='slogin.php'><span>SELLER LOGIN</span></a></li>
 		 <li class='last'><a href='adminlogin.php'><span>ADMIN LOGIN</span></a></li>
 		 </ul>
 		 </li>
