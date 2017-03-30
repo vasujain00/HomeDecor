@@ -1,4 +1,5 @@
-<?php 
+<?php
+include ('inc/products.php'); 
  session_start();
 
  if(isset($_SESSION['customeremail'])){
@@ -20,7 +21,7 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
    <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<link rel="stylesheet" href="css/w3.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <title>Home Decor | Home</title>
    <style>
@@ -98,6 +99,10 @@ float: left;
 }
 div.hscroll{
   overflow:auto;
+}
+.img_size{
+	width:200px;
+	height:300px; 
 }
 </style>
 </head>
@@ -210,27 +215,10 @@ div.hscroll{
               </div>
               <div class="col-md-12 hscroll">
                 <div class="w3-cell-row ">
-                  <div class="w3-card-4 w3-cell">
-                    <img src="image/gol-d-rogers.jpg" alt="Norway">
-                    <div class="w3-container w3-center">
-                      <p>The Troll's tongue in Hardanger, Norway</p>
-                    </div>
-                  </div>
-
-                  <div class="w3-card-4 w3-cell">
-                    <img src="image/gol-d-rogers.jpg" alt="Norway">
-                    <div class="w3-container w3-center">
-                      <p>The Troll's tongue in Hardanger, Norway</p>
-                    </div>
-                  </div>
-
-                  <div class="w3-card-4 w3-cell">
-                    <img src="image/gol-d-rogers.jpg" alt="Norway">
-                    <div class="w3-container w3-center">
-                      <p>The Troll's tongue in Hardanger, Norway</p>
-                    </div>
-                  </div>
-
+                  <?php
+                   $pd=new Product();
+                   $pd->best_price();
+                  ?>
                 </div>
               </div>
             </div>
@@ -238,31 +226,13 @@ div.hscroll{
             <div class="row">
 
               <div class="col-md-2">
-                <h2>Best Price</h2>
+                <h2>All Products</h2>
               </div>
               <div class="col-md-12 hscroll">
                 <div class="w3-cell-row ">
-                  <div class="w3-card-4 w3-cell">
-                    <img src="image/gol-d-rogers.jpg" alt="Norway">
-                    <div class="w3-container w3-center">
-                      <p>The Troll's tongue in Hardanger, Norway</p>
-                    </div>
-                  </div>
-
-                  <div class="w3-card-4 w3-cell">
-                    <img src="image/gol-d-rogers.jpg" alt="Norway">
-                    <div class="w3-container w3-center">
-                      <p>The Troll's tongue in Hardanger, Norway</p>
-                    </div>
-                  </div>
-
-                  <div class="w3-card-4 w3-cell">
-                    <img src="image/gol-d-rogers.jpg" alt="Norway">
-                    <div class="w3-container w3-center">
-                      <p>The Troll's tongue in Hardanger, Norway</p>
-                    </div>
-                  </div>
-
+                  <?php
+                  	$pd->show_product();
+                  ?>
                 </div>
               </div>
             </div>
