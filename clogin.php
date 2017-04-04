@@ -12,7 +12,9 @@ session_start();
 			if($num==1){
 				$_SESSION['customeremail']=$email;
 					header('Location:index.php');
-					exit();
+			}
+			else{
+				header('Location : clogin.php');
 			}
 		}
 

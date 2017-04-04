@@ -13,11 +13,10 @@ session_start();
 			if($num==1){
 				$_SESSION['selleremail']=$email;
 					header('Location:index.php');
-					exit();
+					
 			}
 			else{
-				echo mysql_error();
-				exit();
+					header('Location:slogin.php');
 			}
 		}
 
