@@ -1,7 +1,12 @@
 <?php
 include ('inc/products.php'); 
  session_start();
-
+if(isset($_GET['error'])){
+	$er=$_GET['error'];
+}
+else{
+	$er=0;
+}
  if(isset($_SESSION['customeremail'])){
  	$user="customer";
   $email=$_SESSION['customeremail'];
@@ -10,6 +15,7 @@ include ('inc/products.php');
  	$user="seller";
   $email=$_SESSION['selleremail'];
  }
+
 
  ?>
 
@@ -22,6 +28,8 @@ include ('inc/products.php');
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
    <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="css/w3.css">
+    <link href="css/mdb.css" rel="stylesheet">
+
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <title>Home Decor | Home</title>
    <style>
@@ -107,6 +115,107 @@ div.hscroll{
 </style>
 </head>
 <body>
+<!-- Modal: Login form -->
+    <div class="modal fade" id="clogin-form" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center">Customer Login </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <form class="col-md-12" action="clogin.php" method="POST">
+                            <p>Welcome</p>
+                            <br>
+                            <div class="input-field">
+                                
+                                <input id="username" type="text" name="email" class="validate" placeholder="user-email">
+                                
+                            </div>
+                            
+                            <div class="input-field">
+                                
+                                <input id="password" type="password" name="password" class="validate" placeholder="password">
+                                
+                            </div>
+                            
+                        
+                        <div class="text-center">
+                            <button type="submit" id="loginbuttn" class="btn btn-primary waves-effect waves-light" onclick="login_fun()">Login</button>
+                        </div>
+                        </form>
+                        <hr>
+                        <div class="col-md-12">
+                            <div class="call">
+                                <p>LogIn With <span class="cf-phone"><i class="fa fa-phone"> </i></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">X</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--/.Modal: Contact form-->
+
+
+
+    <!-- Modal: Login form -->
+    <div class="modal fade" id="slogin-form" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center">Seller Login </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <form class="col-md-12" action="slogin.php" method="POST">
+                            <p>Welcome</p>
+                            <br>
+                            <div class="input-field">
+                                
+                                <input id="username" type="text" name="email" class="validate" placeholder="user-email">
+                                
+                            </div>
+                            
+                            <div class="input-field">
+                                
+                                <input id="password" type="password" name="password" class="validate" placeholder="password">
+                                
+                            </div>
+                            
+                        
+                        <div class="text-center">
+                            <button type="submit" id="loginbuttn" class="btn btn-primary waves-effect waves-light" onclick="login_fun()">Login</button>
+                        </div>
+                        </form>
+                        <hr>
+                        <div class="col-md-12">
+                            <div class="call">
+                                <p>LogIn With <span class="cf-phone"><i class="fa fa-phone"> </i></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">X</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--/.Modal: Contact form-->
+
+
 <div  class="heading">
 <h1><span>HOME </span>DECOR</h1>
 </div>
@@ -137,8 +246,8 @@ div.hscroll{
 		 </li>
     <li class='has-sub'><a href='#'><span>LOGIN</span></a>
       <ul class="sub-menu">
-         <li><a href='clogin.php'><span>CUSTOMER LOGIN</span></a></li>
-		 <li><a href='slogin.php'><span>SELLER LOGIN</span></a></li>
+         <li><a href="#" class="waves-effect waves-light" data-toggle="modal" data-target="#clogin-form"><span>CUSTOMER LOGIN</span></a></li>
+         <li><a href="#" class="waves-effect waves-light" data-toggle="modal" data-target="#slogin-form"><span>seller LOGIN</span></a></li>
 		 <li class='last'><a href='adminlogin.php'><span>ADMIN LOGIN</span></a></li>
 		 </ul>
 		 </li>
