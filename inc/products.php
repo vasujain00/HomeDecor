@@ -32,7 +32,7 @@ class Product{
                 <img class=\"img-fluid\" src=\"".$image."\" alt=\"Card image cap\">
                 <div class=\"card-block\">
                     <h4 class=\"card-title\">".$name."</h4>
-                    <p class=\"card-text\">".$description."</p>
+                    <p class=\"card-text\">".$price."<br>".$description."</p>
                     <a href=\"#\" class=\"btn btn-primary\">Button</a>
                 </div>
             </div>
@@ -70,7 +70,7 @@ class Product{
                 <img class=\"img-fluid\" src=\"".$image."\" alt=\"Card image cap\">
                 <div class=\"card-block\">
                     <h4 class=\"card-title\">".$name."</h4>
-                    <p class=\"card-text\">".$description."</p>
+                    <p class=\"card-text\">".$price."<br>".$description."</p>
                     <a href=\"#\" class=\"btn btn-primary\">Button</a>
                 </div>
             </div>

@@ -315,7 +315,11 @@ div.hscroll{
 		</div>
 	</div>
     <div class="row">
-      <div class="col-md-12 w3-card-4">
+    	<div class="col-md-3">
+			<!--Side Bar Here-->
+    	</div>
+
+      <div class="col-md-9">
           <div class="container">
             <div class="row">
 
