@@ -323,7 +323,7 @@ div.hscroll{
                 <h2>Best Price</h2>
               </div>
               <div class="col-md-12 hscroll">
-                <div class="w3-cell-row ">
+                <div class="row ">
                   <?php
                    $pd=new Product();
                    $pd->best_price();
@@ -338,7 +338,7 @@ div.hscroll{
                 <h2>All Products</h2>
               </div>
               <div class="col-md-12 hscroll">
-                <div class="w3-cell-row ">
+                <div class="row ">
                   <?php
                   	$pd->show_product();
                   ?>
