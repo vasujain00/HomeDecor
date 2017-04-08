@@ -27,16 +27,16 @@ class Product{
             $i=$i+1;
             $image="products/".$image;
            echo "
-                  <div class=\"w3-card-4 w3-cell\">
-                    <img class=\"img_size\" src=\"".$image."\" alt=\"Norway\">
-                    <div class=\"w3-container w3-center\">
-                      <h1>".$name."</h1>
-                      <p>".$color."<br>".$price."<br>".$description."</p>
-                    </div>
-                  </div>
-
-           ";
-
+            <div class=\"col-md-3\">
+            <div class=\"card\">
+                <img class=\"img-fluid\" src=\"".$image."\" alt=\"Card image cap\">
+                <div class=\"card-block\">
+                    <h4 class=\"card-title\">".$name."</h4>
+                    <p class=\"card-text\">".$description."</p>
+                    <a href=\"#\" class=\"btn btn-primary\">Button</a>
+                </div>
+            </div>
+            </div>";
       }
     }
   }
@@ -65,15 +65,16 @@ class Product{
             $image="products/".$image;
             
             echo "
-
-                  <div class=\"w3-card-4 w3-cell\">
-                    <img class=\"img_size\" src=\"".$image."\" alt=\"Norway\">
-                    <div class=\"w3-container w3-center\">
-                      <h1>".$name."</h1>
-                      <p>".$color."<br>".$price."<br>".$description."</p>
-                    </div>
-                  </div>
-            ";
+            <div class=\"col-md-3\">
+            <div class=\"card\">
+                <img class=\"img-fluid\" src=\"".$image."\" alt=\"Card image cap\">
+                <div class=\"card-block\">
+                    <h4 class=\"card-title\">".$name."</h4>
+                    <p class=\"card-text\">".$description."</p>
+                    <a href=\"#\" class=\"btn btn-primary\">Button</a>
+                </div>
+            </div>
+            </div>";
 
       } //While closed
   }  //If closed
