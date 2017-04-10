@@ -315,6 +315,23 @@ div.hscroll{
     <div class="row">
     	<div class="col-md-3">
 			<!--Side Bar Here-->
+        <div class="card">
+          <div class="row">
+            <div class="col-md-12">
+              <input type="text" name="" value="" placeholder="">
+              <hr>
+              <p>Get It Fast</p>
+              <input type="checkbox" name="" value="">Express Shipping
+              Zip Code: <input type="text" name="" value="" placeholder="">
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
     	</div>
 
       <div class="col-md-9">
