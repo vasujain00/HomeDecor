@@ -1,0 +1,22 @@
+<?php 
+require("connect.php");
+
+$query = "SELECT * FROM top_odi_wicket_takers";
+		//storing the result of the executed query
+		$result = $conn->query($query);
+
+			//initialize the array to store the processed data
+		$jsonArray = array();
+		//check if there is any data returned by the SQL Query
+		if ($result->num_rows > 0) {
+		  //Converting the results into an associative array
+		  while($row = $result->fetch_assoc()) {
+		    $jsonArrayItem = array();
+		    $jsonArrayItem['label'] = $row['player'];
+		    $jsonArrayItem['value'] = $row['wickets'];
+		    //append the above created object into the main array.
+		    array_push($jsonArray, $jsonArrayItem);
+		  }
+		
+
+?>
