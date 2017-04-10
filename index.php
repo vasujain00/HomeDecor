@@ -28,7 +28,6 @@ else{
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
    <link rel="stylesheet" href="styles.css">
     <link href="css/mdb.css" rel="stylesheet">
-
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <title>Home Decor | Home</title>
    <style>
