@@ -108,7 +108,7 @@ div.hscroll{
 }
 .img_size{
 	width:200px;
-	height:300px; 
+	height:200px; 
 }
 </style>
 </head>

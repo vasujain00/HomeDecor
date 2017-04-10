@@ -27,13 +27,16 @@ class Product{
             $i=$i+1;
             $image="products/".$image;
            echo "
-                  <div class=\"w3-card-4 w3-cell\">
+              <div class=\"col-md-3\">
+                  <div class=\"card cust-size\">
                     <img class=\"img_size\" src=\"".$image."\" alt=\"Norway\">
-                    <div class=\"w3-container w3-center\">
+                    <div class=\"text-center\">
                       <h1>".$name."</h1>
                       <p>".$color."<br>".$price."<br>".$description."</p>
                     </div>
+                  <button  class=\"btn btn-primary waves-effect waves-light\" onclick=\"\">View More</button>
                   </div>
+                </div>
 
            ";
 
@@ -64,15 +67,18 @@ class Product{
             $i=$i+1;
             $image="products/".$image;
             
-            echo $color + "
+            echo"
 
-                  <div class=\"w3-card-4 w3-cell\">
+                <div class=\"col-md-3\">
+                  <div class=\"card cust-size\">
                     <img class=\"img_size\" src=\"".$image."\" alt=\"Norway\">
-                    <div class=\"w3-container w3-center\">
+                    <div class=\"text-center\">
                       <h1>".$name."</h1>
                       <p>".$color."<br>".$price."<br>".$description."</p>
                     </div>
+                  <button  class=\"btn btn-primary waves-effect waves-light\" onclick=\"\">View More</button>
                   </div>
+                </div>
             ";
 
       } //While closed
