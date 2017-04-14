@@ -223,16 +223,16 @@ div.hscroll{
    <li class='has-sub'><a href='servicedetail.html'><span>Furniture</span></a>
       <ul class="sub-menu">
          <li><a href='bed.php'><span>BED ROOM FURNITURE</span></a></li>
-		 <li><a href='living.php'><span>LIVING ROOM FURNITURE</span></a></li>
-		 <li><a href='outdoor.php'><span>OUT DOOR FURNITURE</span></a></li>
-		 <li><a href='kitchen.php'><span>KITCHEN FURNITURE</span></a></li>
-		 <li><a href='hall.php'><span>HALL & ENTRY FURNITURE</span></a></li>
-		 <li><a href='kids.php'><span>KIDS FURNITURE</span></a></li>
-		 <li><a href='game.php'><span>GAME ROOM FURNITURE</span></a></li>
-		 <li><a href='bar.php'><span>BAR FURNITURE</span></a></li>
-		 <li><a href='bathroom.php'><span>BATHROOM FURNITURE</span></a></li>
-		 <li><a href='office.php'><span>OFFICE FURNITURE</span></a></li>
-		 <li><a href='accent.php'><span>ACCENT FURNITURE</span></a></li>
+          <li><a href='living.php'><span>LIVING ROOM FURNITURE</span></a></li>
+     <li><a href='outdoor.php'><span>OUT DOOR FURNITURE</span></a></li>
+     <li><a href='kitchen.php'><span>KITCHEN FURNITURE</span></a></li>
+     <li><a href='hall.php'><span>HALL & ENTRY FURNITURE</span></a></li>
+     <li><a href='kids.php'><span>KIDS FURNITURE</span></a></li>
+     <li><a href='game.php'><span>GAME ROOM FURNITURE</span></a></li>
+     <li><a href='bar.php'><span>BAR FURNITURE</span></a></li>
+     <li><a href='bathroom.php'><span>BATHROOM FURNITURE</span></a></li>
+     <li><a href='office.php'><span>OFFICE FURNITURE</span></a></li>
+     <li><a href='accent.php'><span>ACCENT FURNITURE</span></a></li>
       </ul>
    </li>
    <li class='active'><a href='aboutus.html'><span>About US</span></a></li>
@@ -339,14 +339,11 @@ div.hscroll{
             <div class="row">
 
               <div class="col-md-2">
-                <h2>Best Price</h2>
+                <h2>Best Price Kitchen</h2>
               </div>
               <div class="col-md-12 hscroll">
                 <div class="row ">
-                  <?php
-                   $pd=new Product();
-                   $pd->best_price();
-                  ?>
+                 
                 </div>
               </div>
             </div>
@@ -354,13 +351,11 @@ div.hscroll{
             <div class="row">
 
               <div class="col-md-2">
-                <h2>All Products</h2>
+                <h2>Kitchen</h2>
               </div>
               <div class="col-md-12 hscroll">
                 <div class="row ">
-                  <?php
-                  	$pd->show_product();
-                  ?>
+                  
                 </div>
               </div>
             </div>

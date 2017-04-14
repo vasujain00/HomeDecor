@@ -1,4 +1,5 @@
 <?php
+include ('inc/connect.php'); 
 include ('inc/products.php'); 
  session_start();
 if(isset($_GET['error'])){
@@ -223,16 +224,16 @@ div.hscroll{
    <li class='has-sub'><a href='servicedetail.html'><span>Furniture</span></a>
       <ul class="sub-menu">
          <li><a href='bed.php'><span>BED ROOM FURNITURE</span></a></li>
-		 <li><a href='living.php'><span>LIVING ROOM FURNITURE</span></a></li>
-		 <li><a href='outdoor.php'><span>OUT DOOR FURNITURE</span></a></li>
-		 <li><a href='kitchen.php'><span>KITCHEN FURNITURE</span></a></li>
-		 <li><a href='hall.php'><span>HALL & ENTRY FURNITURE</span></a></li>
-		 <li><a href='kids.php'><span>KIDS FURNITURE</span></a></li>
-		 <li><a href='game.php'><span>GAME ROOM FURNITURE</span></a></li>
-		 <li><a href='bar.php'><span>BAR FURNITURE</span></a></li>
-		 <li><a href='bathroom.php'><span>BATHROOM FURNITURE</span></a></li>
-		 <li><a href='office.php'><span>OFFICE FURNITURE</span></a></li>
-		 <li><a href='accent.php'><span>ACCENT FURNITURE</span></a></li>
+          <li><a href='living.php'><span>LIVING ROOM FURNITURE</span></a></li>
+     <li><a href='outdoor.php'><span>OUT DOOR FURNITURE</span></a></li>
+     <li><a href='kitchen.php'><span>KITCHEN FURNITURE</span></a></li>
+     <li><a href='hall.php'><span>HALL & ENTRY FURNITURE</span></a></li>
+     <li><a href='kids.php'><span>KIDS FURNITURE</span></a></li>
+     <li><a href='game.php'><span>GAME ROOM FURNITURE</span></a></li>
+     <li><a href='bar.php'><span>BAR FURNITURE</span></a></li>
+     <li><a href='bathroom.php'><span>BATHROOM FURNITURE</span></a></li>
+     <li><a href='office.php'><span>OFFICE FURNITURE</span></a></li>
+     <li><a href='accent.php'><span>ACCENT FURNITURE</span></a></li>
       </ul>
    </li>
    <li class='active'><a href='aboutus.html'><span>About US</span></a></li>
@@ -263,114 +264,121 @@ div.hscroll{
    </li>
 </ul>
 </div>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="slider">
- 			<span class="navimg" id="left"><a  class="arrow-prev"><img src="image/sliders/slider-left.png"></a></span>
-            <span class="navimg" id="right"><a class="arrow-next"><img src="image/sliders/slider-right.png"></a></span>
 
-              <div class="slide active-slide">
-                <div class="container-fluid">
-                  <div class="row">
-                    <img class="slide-img" src="image/sliders/img1.jpg" >
-                  </div>
-                </div>
-              </div>
-              <div class="slide">
-                <div class="container-fluid">
-                  <div class="row">
-                     <img class="slide-img"src="image/sliders/img2.jpg" >
-                  </div>
-                </div>
-              </div>
-              <div class="slide">
-                <div class="container-fluid">
-                  <div class="row">
-                     <img class="slide-img" src="image/sliders/img3.jpg" >
-                  </div>
-                </div>
-              </div>
 
-              <div class="slide">
-                <div class="container-fluid">
-                  <div class="row">
-                     <img class="slide-img" src="image/sliders/img4.jpg" >
-                  </div>
-                </div>
-              </div>
 
-              <div class="slide">
-                <div class="container-fluid">
-                  <div class="row">
-                     <img class="slide-img" src="image/sliders/img5.jpg" >
-                  </div>
-                </div>
-              </div>
-              
-          </div>
-			
-		</div>
-	</div>
-    <div class="row">
-    	<div class="col-md-3">
-			<!--Side Bar Here-->
-        <div class="card">
-          <div class="row">
-            <div class="col-md-12">
-              <input type="text" name="" value="" placeholder="">
-              <hr>
-              <p>Get It Fast</p>
-              <input type="checkbox" name="" value="">Express Shipping
-              Zip Code: <input type="text" name="" value="" placeholder="">
-            </div>
-          </div>
+<div class="container" style="box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+
+<div class="row"  style="margin-top:-1%;">
+    <div class="col-md-10 col-md-offset-1">
+        <?php 
+         $db=new Database();
+       $db->dbConnect();
+        $link=$db->getConn();
+        $query=  mysql_query("SELECT * FROM cart WHERE Cust_ID=2") or die(mysql_error());
+        $num=  mysql_num_rows($query);
+        if($num>0){
+        ?>
+         <table class="table table-striped table-bordered">
+            <caption><h3 class="text-info" style="text-align:center">Dear Vasu, You Selected Following Services</h3></caption>
+            <thead>
+                <tr class="info ">
+                <th>Sr. No.</th>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Delete from cart</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                   <?php 
+                $i=1;
+                while ($row = mysql_fetch_array($query)) {
+                        $ProductId=$row['Prod_ID'];
+                        $query1=  mysql_query("SELECT * FROM product WHERE Prod_ID='$ProductId'") or die(mysql_error());
+                        $row1=  mysql_fetch_array($query1);
+                        $ProName=$row1['Pname'];
+                        $ProImg=$row1['Image'];
+                        $ProCost=$row1['Price'];
+                        ?>
+                        <tr>
+                <td><?php echo $i++;?></td>
+                <td><img src="products/<?php echo $ProImg;?>" class="img-responsive img-thumbnail" width="100px" height="50px"></td>
+                <td><?php echo $ProName?></td>
+                <td><?php echo $ProCost?></td>
+                <td>
+                 <a href="remove.php?cstm=<?php echo $CustomerId;?>&& prod=<?php echo $ProductId;?>" class="btn btn-info btn-md" role="button">
+                     Remove
+                    </a>
+                </td>
+                </tr>
+                <?php
+                }                   
+                ?>
+            </tbody>
+        </table>
+            <?php 
+        $i=$i-1;
+       $_SESSION['cart'] = $i ;
+       
+    
+        // echo $_SESSION['cart'];
+         ?>
         </div>
-
-
-
-
-
-
-    	</div>
-
-      <div class="col-md-9">
-          <div class="container">
-            <div class="row">
-
-              <div class="col-md-2">
-                <h2>Best Price</h2>
-              </div>
-              <div class="col-md-12 hscroll">
-                <div class="row ">
-                  <?php
-                   $pd=new Product();
-                   $pd->best_price();
-                  ?>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-
-              <div class="col-md-2">
-                <h2>All Products</h2>
-              </div>
-              <div class="col-md-12 hscroll">
-                <div class="row ">
-                  <?php
-                  	$pd->show_product();
-                  ?>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-             
-      </div> 
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 ">
+            <a href="order.php" title="You Have To Order Atleast Two Services" class="btn btn-info btn-md btn-block" role="button" style="font-size:20px;">
+            Order The All Above Services ->>
+            </a>
+        </div>
     </div>
+        <?php }  else {
+                ?>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 alert alert-info "><center><a class="alert-link" href="customer.php">Opp's ! Your Cart is Empty . Add Service </a></center></div>
+    </div>
+    <?php
+            }?>
 </div>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
 <div>
 <footer id="footer">
     <div class="footer-bottom">
