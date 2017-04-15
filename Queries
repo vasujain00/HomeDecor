@@ -1,0 +1,15 @@
+Database queries:
+
+select a.Cust_ID ,a.Fname , a.Lname from customer as a , payment as b , cart as c ,orderr as d where b.Cart_ID =c.Cart_ID and c.Cust_ID = a.Cust_ID and d.Payment_ID = b.Payment_ID and year(d.Order_date) = '2015' and a.Cust_ID not in (select Cust_ID from orderr inner join payment on orderr.Payment_ID = payment.Payment_ID where year(d.Order_date)='2016') group by a.Cust_ID having sum( b.Amount) >1000
+
+select Pname from ( select Pname from product order by Discount ) as T LIMIT 10
+
+
+select s.Fname ,s.Lname,s.Sell_ID,c.Cat_ID,c.Cat_name from seller s,category c,product p where p.Cat_ID = c.Cat_ID and s.Sell_ID = p.Sell_ID and c.Cat_ID and p.Cat_ID = c.Cat_ID group by p.Sell_ID having count(p.Cat_ID)>5
+
+select c.Fname ,c.Lname from customer c where c.cust_id in (select ca.cust_id from cart ca,payment p where ca.cart_id = p.cart_id group by (ca.cust_id) having count (p.paymemt_ID)>5)
+
+select p.P_ID , p.Pname from product p , cart c where p.P_ID = c.P_ID and c.P_ID in (select P_ID from cart group by (P_ID) having Total_cost>0  order by count(P_ID) DESC limit 5)
+
+
+select a.P_ID , p.Pname ,count(c.Cust_ID) from product p , cart c ,(select P_ID from cart group by (P_ID) having Total_cost>0  order by count(P_ID) DESC limit 5)  a where p.P_ID = c.P_ID and c.P_ID  group by (c.P_ID)

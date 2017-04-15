@@ -28,20 +28,44 @@ class Product{
             $image="products/".$image;
            echo "
               <div class=\"col-md-3\">
-                  <div class=\"card cust-size\">
-                    <img class=\"img_size\" src=\"".$image."\" alt=\"Norway\">
-                    <div class=\"text-center\">
-                      <h1>".$name."</h1>
-                      <p>".$color."<br>".$price."<br>".$description."</p>
-                    </div>
-                  <button  class=\"btn btn-primary waves-effect waves-light\" onclick=\"\">View More</button>
-                  </div>
-                </div>
+                 
+                   <img src=\"".$image."\" class=\"img-thumbnail\" alt=\"Cinque Terre\" width=\"304\" height=\"236\">  
+                    
+                 </div>
+               
 
            ";
 
       }
     }
+  }
+
+  public function purchase_year_2016()
+  {
+
+          $db=new Database();
+          $db->dbConnect();
+
+        $query=mysql_query("SELECT a.Cust_ID ,a.Fname , a.Lname FROM customer as a , payment as b , cart as c ,orderr as d WHERE b.Cart_ID =c.Cart_ID AND c.Cust_ID = a.Cust_ID AND d.Payment_ID = b.Payment_ID AND year(d.Order_date) = '2015' AND a.Cust_ID not IN (SELECT Cust_ID FROM orderr INNER JOIN  payment ON orderr.Payment_ID = payment.Payment_ID WHERE year(d.Order_date)='2016') GROUP BY a.Cust_ID HAVING sum( b.Amount) >1000") or die(mysql_error());
+           $num=mysql_num_rows($query);
+     if($num>0){
+      $i=0;
+       while($i<$num)
+      {
+         $cus_id=mysql_result($query,$i,"Cust_ID");
+         $fname=mysql_result($query,$i,"Fname");
+         $lname=mysql_result($query,$i,"Lname");
+          $i=$i+1;
+
+          echo "
+                 <td>".$i."</td>
+                <td>".$fname."</td>
+                <td>".$lname."</td>
+          " ;
+        }
+      }
+
+
   }
 
   public function best_price(){
