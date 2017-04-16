@@ -11,7 +11,7 @@ session_start();
 			$num=mysql_num_rows($result);
 			if($num==1){
 				$_SESSION['selleremail']=$email;
-					header('Location:index.php?error=0');
+					header('Location:seller.php?error=0');
 					
 			}
 			else{
