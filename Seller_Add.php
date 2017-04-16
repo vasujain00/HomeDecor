@@ -74,7 +74,6 @@ user-scalable=no">
   </style>
 </head>
 <body>
-        <a href="index.php" ><font color="red"><span style="font-size:30px;cursor:pointer;margin-left:20px;">&#9776;</span></font></a>  
 
 <center>
 <div class="container">
