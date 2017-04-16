@@ -19,7 +19,7 @@ else{
 
  ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset='utf-8'>
@@ -219,7 +219,7 @@ div.hscroll{
 </div>
 <div id='dropdown'>
 <ul>
-   <li class='active'><a href='home1.php'><span>Home</span></a></li>
+   <li class='active'><a href='index.php'><span>Home</span></a></li>
    <li class='has-sub'><a href='servicedetail.html'><span>Furniture</span></a>
       <ul class="sub-menu">
          <li><a href='bed.php'><span>BED ROOM FURNITURE</span></a></li>
@@ -313,28 +313,7 @@ div.hscroll{
 		</div>
 	</div>
     <div class="row">
-    	<div class="col-md-3">
-			<!--Side Bar Here-->
-        <div class="card">
-          <div class="row">
-            <div class="col-md-12">
-              <input type="text" name="" value="" placeholder="">
-              <hr>
-              <p>Get It Fast</p>
-              <input type="checkbox" name="" value="">Express Shipping
-              Zip Code: <input type="text" name="" value="" placeholder="">
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-    	</div>
-
-      <div class="col-md-9">
+      <div class="col-md-12">
           <div class="container">
             <div class="row">
 
@@ -345,7 +324,7 @@ div.hscroll{
                 <div class="row ">
                   <?php
                    $pd=new Product();
-                   $pd->best_price();
+                   $pd->best_price(5);
                   ?>
                 </div>
               </div>
@@ -359,7 +338,7 @@ div.hscroll{
               <div class="col-md-12 hscroll">
                 <div class="row ">
                   <?php
-                  	$pd->show_product();
+                  	$pd->show_product(5);
                   ?>
                 </div>
               </div>
