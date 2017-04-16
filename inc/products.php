@@ -1,5 +1,5 @@
 <?php 
-include_once ('inc/connect.php');
+include_once ('connect.php');
 
 class Product{
 
