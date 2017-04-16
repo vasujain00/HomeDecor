@@ -58,25 +58,8 @@ if(isset($_POST["submit"]))
 	}
 
 ?>
-
-<html lang="en">
-<head>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,
-user-scalable=no">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <style>
-    a:link{
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
-
 <center>
-<div class="container">
+<div class="col-md-8">
 
 <div class="container">
   <h2>Add a Product</h2>
@@ -100,19 +83,19 @@ user-scalable=no">
          <input type="text" class="form-control" required name="color" id="color">
       </div>
     </div>
-     <div class="form-group">
+    <div class="form-group">
       <label class="control-label col-sm-2" for="email">Product Condition:</label>
       <div class="col-sm-10">
          <input type="text" class="form-control" required name="con" id="con">
       </div>
     </div>
-     <div class="form-group">
+    <div class="form-group">
       <label class="control-label col-sm-2" for="email">Product Description:</label>
       <div class="col-sm-10">
          <input type="text" class="form-control" required name="desc" id="desc">
       </div>
     </div>
-     <div class="form-group">
+    <div class="form-group">
       <label class="control-label col-sm-2" for="email">Product Material:</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" required name="material" id="material">
@@ -128,23 +111,21 @@ user-scalable=no">
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Category:</label>
       <div class="col-sm-10">
-       <?php
-       $db=new Database();
-      $db->dbConnect();
-       $fetch = "SELECT DISTINCT Cat_name FROM Category";
-       $result = mysql_query($fetch);
+         <?php
+         $db=new Database();
+        $db->dbConnect();
+         $fetch = "SELECT DISTINCT Cat_name FROM Category";
+         $result = mysql_query($fetch);
 
-         ?>
-         <select id="select1">
-          <?php while($data2 = mysql_fetch_array($result)){
-              $displayData2 = $data2['Cat_name'];
-          ?>
-          <option value="<?php echo $displayData2;?>"><?php echo $displayData2;?></option>
+           ?>
+           <select id="select1">
+            <?php while($data2 = mysql_fetch_array($result)){
+                $displayData2 = $data2['Cat_name'];
+            ?>
+            <option value="<?php echo $displayData2;?>"><?php echo $displayData2;?></option>
 
-          <?php }?>
-        </select>
-  </div>
-</div>
+            <?php }?>
+          </select>
       </div>
     </div>
 
@@ -161,7 +142,7 @@ user-scalable=no">
        <input type="file" name="file" />
       </div>
     </div>
-    </div>
+    
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" name="submit" class="btn btn-default">Submit</button>
@@ -172,5 +153,3 @@ user-scalable=no">
 
 </div>
 </center>
-</body>
-</html>
