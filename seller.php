@@ -76,7 +76,7 @@ if(isset($_SESSION['selleremail'])){
 
 <div class="fluid-container">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<ul>
 				<li><button class="btn btn-primary my_button" type="button">add items</button></li>
 				<li><button class="btn btn-primary my_button" type="button">review sales</button></li>
