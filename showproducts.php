@@ -47,39 +47,6 @@ class Product{
 	<title>Home Decor</title>
 </head>
 <body>
-<div id="myNav" class="overlay">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-          <div class="overlay-content">
-            <a class="arkhip" href="index.php">HomeDecor</a>
-            <a href="Seller_Add.php">Add Sellers</a>
-            <a href="showproducts.php">Show Products</a>
-            <a href="additem.php">Add Items</a>
-            <a href="#">Fetch Category</a>
-          </div>
-    </div>
-    <nav class="nav navbar navbar-fixed-top">
-        <font color="red"><span style="font-size:30px;cursor:pointer;margin-left:20px;" onclick="openNav()">&#9776;</span></font>  
-    </nav>
-        <script>
-        function openNav() {
-            document.getElementById("myNav").style.height = "100%";
-        }
-
-        function closeNav() {
-            document.getElementById("myNav").style.height = "0%";
-        }
-
-        
-        </script>
-<div class="container-fluid">
-  <div class="bgvid">
-                <video muted class="video-fluid" autoplay loop>
-                    <source src="#" type="video/mp4" />
-                    <source src="#" type="video/webm">
-                </video>       
-      </div>
-</div>
 <div class="container">
 <div class="row">
     <div class="col-sm-3" style="background-color:lavender;">Name</div>
