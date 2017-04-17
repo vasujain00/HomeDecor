@@ -28,14 +28,9 @@ class Product{
             $image="products/".$image;
            echo "
               <div class=\"col-md-4\">
-                 
-                   <img src=\"products/skull_clock.jpg\" class=\"img-thumbnail\" alt=\"Cinque Terre\" width=\"304\" height=\"236\">  
-                    
-                 </div>
-               
-
-           ";
-
+                <a href=\"\"><img src=\"products/skull_clock.jpg\" class=\"img-thumbnail\" alt=\"Cinque Terre\" width=\"304\" height=\"236\"></a>     
+              </div>
+            ";
       }
     }
   }

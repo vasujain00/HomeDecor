@@ -312,6 +312,36 @@ div.hscroll{
 			
 		</div>
 	</div>
+  <div class="row">
+      <div class="col-md-12">
+        <center><center> <h3> Shop By Category </h3></center></center>
+        <div class="container">
+          <center>
+          <div class="row">
+            <div class="col-sm-2">
+              <a><img src="cat/1.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"></a>
+            </div>
+            <div class="col-sm-2">
+              <a><img src="cat/2.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"></a>
+            </div>
+            <div class="col-sm-2">
+              <a><img src="cat/3.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"></a>
+            </div>
+            <div class="col-sm-2">    
+              <a><img src="cat/4.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"></a>
+            </div>
+            <div class="col-sm-2">
+              <a><img src="cat/5.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"></a>
+            </div>
+            <div class="col-sm-2">
+             <a> <img src="cat/6.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"></a>
+            </div>
+          </div>
+          </center>
+        </div>
+      </div>
+
+  </div>
     <div class="row">
       <div class="col-md-12">
           <div class="container">
@@ -324,7 +354,7 @@ div.hscroll{
                 <div class="row ">
                   <?php
                    $pd=new Product();
-                   $pd->best_price(5);
+                   $pd->best_price(6);
                   ?>
                 </div>
               </div>
@@ -338,8 +368,9 @@ div.hscroll{
               <div class="col-md-12 hscroll">
                 <div class="row ">
                   <?php
-                  	$pd->show_product(5);
+                  	$pd->show_product(6);
                   ?>
+                  <a href="#">View More</a>
                 </div>
               </div>
             </div>
