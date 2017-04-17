@@ -3,6 +3,36 @@ include_once ('connect.php');
 
 class Product{
 
+  public function get_product_details($prod_id){
+    $db=new Database();
+    $db->dbConnect();
+    $stmt=mysql_query("SELECT * FROM product where ID= ".$prod_id);
+    $num=mysql_num_rows($stmt);
+    if($num>0){
+      $prod_id=mysql_result($stmt,0,"ID");
+      $brand_id=mysql_result($stmt,0,"Brand_ID");
+      $cart_id=mysql_result($stmt,0,"Cart_ID");
+      $color=mysql_result($stmt,0,"Color");
+      $name=mysql_result($stmt,0,"pname");
+      $price=mysql_result($stmt,0,"price");
+      $image=mysql_result($stmt,0,"Image");
+      $image="products/".$image;
+      $description=mysql_result($stmt,0,"Descri");
+      $discount=mysql_result($stmt,0,"Discount");
+      $prod_arr['name']=$name;
+      $prod_arr['price']=$price;
+      $prod_arr['desc']=$description;
+      $prod_arr['color']=$color;
+      $prod_arr['imageloc']=$image;
+      $prod_arr['discount']=$discount;
+
+      return $prod_arr;
+    }
+    else{
+      return 0;
+    }
+  }
+
   public function show_product($limit){
     $db=new Database();
     $db->dbConnect();
@@ -28,7 +58,7 @@ class Product{
             $image="products/".$image;
            echo "
               <div class=\"col-md-4\">
-                <a href=\"\"><img src=\"products/skull_clock.jpg\" class=\"img-thumbnail\" alt=\"Cinque Terre\" width=\"304\" height=\"236\"></a>     
+                <a href=\"show.php?id=".$prod_id."\"><img src=\"products/skull_clock.jpg\" class=\"img-thumbnail\" alt=\"Cinque Terre\" width=\"304\" height=\"236\"></a>     
               </div>
             ";
       }
@@ -37,7 +67,6 @@ class Product{
 
   public function purchase_year_2016()
   {
-
           $db=new Database();
           $db->dbConnect();
 
@@ -59,8 +88,6 @@ class Product{
           " ;
         }
       }
-
-
   }
 
   public function best_price($limit){
@@ -85,15 +112,11 @@ class Product{
             $discount=mysql_result($query,$i,"Discount");
             $i=$i+1;
             $image="products/".$image;
-            
-            echo"
-
+             echo "
                 <div class=\"col-md-4\">
-                 
-                   <img src=\"products/skull_clock.jpg\" class=\"img-thumbnail\" alt=\"Cinque Terre\" width=\"400\" height=\"236\">  
-                    
-                 </div>
-            ";
+                  <a href=\"show.php?id=".$prod_id."\"><img src=\"products/skull_clock.jpg\" class=\"img-thumbnail\" alt=\"Cinque Terre\" width=\"304\" height=\"236\"></a>     
+                </div>
+              ";
 
       } //While closed
   }  //If closed
