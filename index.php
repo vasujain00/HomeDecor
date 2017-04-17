@@ -251,8 +251,16 @@ div.hscroll{
 		 </li>
     
 
+
+
+
    <li class='active'><a href='map.html'><span>Show furniture near me</span></a></li>   
    <li class='last'><a href='contact.html'><span>Contact</span></a></li>
+   <li class='last'>
+    <form action="search.php" method="GET">
+      <input type="text" name="searchtxt"value="" placeholder="Search">
+    </form>
+   </li>
    <li class="has-sub right"><a href="" title=""><?php if(isset($email)){ echo $email; }else{ echo "WELCOME";} ?></a>
       <?php if(isset($email)){
               echo "<ul class=\"sub-menu\">
